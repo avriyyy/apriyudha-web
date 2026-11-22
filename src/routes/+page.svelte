@@ -715,7 +715,7 @@
 		transform: translateY(18px);
 		transition: opacity 0.7s ease, transform 0.7s ease;
 	}
-	.reveal.visible {
+	.reveal:global(.visible) {
 		opacity: 1;
 		transform: translateY(0);
 	}
