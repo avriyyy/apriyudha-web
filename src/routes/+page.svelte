@@ -8,7 +8,7 @@
 		{ icon: '/icons/mail.svg', name: 'Email', handle: 'apriyudha307@gmail.com', href: 'mailto:apriyudha307@gmail.com' }
 	];
 
-	const marquee = ['Web Development', 'IoT', 'AI Tools', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
+	const marquee = ['Web Development', 'IoT', 'Ubuntu Server', 'Deploy', 'Hosting', 'VPS', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
 
 	onMount(() => {
 		const els = document.querySelectorAll('.reveal');
@@ -65,8 +65,8 @@
 				and the world <span class="accent">beyond it.</span>
 			</h1>
 			<p class="hero-sub reveal">
-				Mahasiswa Teknik Komputer di Universitas Jenderal Soedirman. Saya membangun produk web,
-				dashboard IoT, dan AI tools, dari ide sampai live.
+				Mahasiswa Teknik Komputer di Universitas Jenderal Soedirman. Saya membangun produk web
+				dan IoT, dan suka ngurusin server: Ubuntu Server, deploy, dan hosting.
 			</p>
 			<div class="hero-cta reveal">
 				<a class="btn btn-primary" href="#projects"
@@ -101,7 +101,8 @@
 				<h2>Mahasiswa yang suka membangun sampai jadi.</h2>
 				<p>
 					Saya Apriyudha, mahasiswa Teknik Komputer angkatan 2024 di Universitas Jenderal
-					Soedirman, berbasis di Cirebon. Fokus saya: web development, IoT, dan AI tools.
+					Soedirman, berbasis di Cirebon. Fokus saya: web development, IoT, dan server (Ubuntu
+					Server, deploy, hosting).
 				</p>
 				<p>
 					Saya percaya project yang bagus adalah yang selesai dan dipakai, bukan yang berhenti di
@@ -111,7 +112,7 @@
 					<li><span>Universitas</span><strong>Unsoed - Teknik Komputer</strong></li>
 					<li><span>Angkatan</span><strong>2024</strong></li>
 					<li><span>Berbasis di</span><strong>Cirebon, Jawa Barat</strong></li>
-					<li><span>Fokus</span><strong>Web · IoT · AI Tools</strong></li>
+					<li><span>Fokus</span><strong>Web · IoT · Server</strong></li>
 				</ul>
 			</div>
 		</div>
@@ -139,7 +140,7 @@
 					</div>
 				</div>
 				<div class="project-body">
-					<p class="mono project-kind">01 - AI TOOL - WEB APP</p>
+					<p class="mono project-kind">01 - WEB APP</p>
 					<h3>MuseVibe</h3>
 					<p class="project-desc">
 						Prompt menjadi PRD, desain, dan scaffold kode. Dibangun untuk Meta AI Developer
