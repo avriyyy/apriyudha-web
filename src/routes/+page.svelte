@@ -2,11 +2,10 @@
 	import { onMount } from 'svelte';
 
 	const socials = [
-		{ mark: 'GH', name: 'GitHub', handle: '@avriyyy', href: 'https://github.com/avriyyy' },
-		{ mark: 'in', name: 'LinkedIn', handle: '/in/apriyudha', href: 'https://www.linkedin.com/in/apriyudha' },
-		{ mark: 'X', name: 'X', handle: '@Avriyyy23', href: 'https://x.com/Avriyyy23' },
-		{ mark: 'IG', name: 'Instagram', handle: '@apriyudha_', href: 'https://www.instagram.com/apriyudha_' },
-		{ mark: '@', name: 'Email', handle: 'apriyudha307@gmail.com', href: 'mailto:apriyudha307@gmail.com' }
+		{ icon: '/icons/github.svg', name: 'GitHub', handle: '@avriyyy', href: 'https://github.com/avriyyy' },
+		{ icon: '/icons/linkedin.svg', name: 'LinkedIn', handle: '/in/apriyudha', href: 'https://www.linkedin.com/in/apriyudha' },
+		{ icon: '/icons/instagram.svg', name: 'Instagram', handle: '@apriyudha_', href: 'https://www.instagram.com/apriyudha_' },
+		{ icon: '/icons/mail.svg', name: 'Email', handle: 'apriyudha307@gmail.com', href: 'mailto:apriyudha307@gmail.com' }
 	];
 
 	const marquee = ['Web Development', 'IoT', 'AI Tools', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
@@ -170,7 +169,7 @@
 			<div class="social-grid reveal">
 				{#each socials as s}
 					<a class="social-card" href={s.href} target="_blank" rel="noreferrer">
-						<span class="social-mark">{s.mark}</span>
+						<span class="social-mark"><img src={s.icon} alt="" width="22" height="22" /></span>
 						<span class="social-info">
 							<strong>{s.name}</strong>
 							<span>{s.handle}</span>
@@ -186,7 +185,7 @@
 <footer class="footer">
 	<div class="wrap footer-inner">
 		<p>© 2026 Apriyudha, Cirebon, Indonesia</p>
-		<p class="mono footer-note">Built with SvelteKit · Deployed on Vercel</p>
+		<p class="mono footer-note">Built with SvelteKit · Hosted on GitHub Pages</p>
 	</div>
 </footer>
 
@@ -538,7 +537,7 @@
 	/* Socials */
 	.social-grid {
 		display: grid;
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 		gap: 16px;
 	}
 	.social-card {
@@ -568,6 +567,11 @@
 		font-family: 'JetBrains Mono', monospace;
 		font-size: 14px;
 		font-weight: 500;
+	}
+	.social-mark img {
+		width: 22px;
+		height: 22px;
+		display: block;
 	}
 	.social-info {
 		display: flex;
