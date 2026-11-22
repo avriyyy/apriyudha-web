@@ -8,7 +8,7 @@
 		{ icon: '/icons/mail.svg', name: 'Email', handle: 'apriyudha307@gmail.com', href: 'mailto:apriyudha307@gmail.com' }
 	];
 
-	const marquee = ['Web Development', 'IoT', 'Ubuntu Server', 'Deploy', 'Hosting', 'VPS', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
+	const marquee = ['Web Development', 'IoT', 'Ubuntu Server', 'DevOps', 'VPS', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
 
 	// Jam live WIB untuk footer
 	let now = new Date();
@@ -88,7 +88,7 @@
 			</h1>
 			<p class="hero-sub reveal">
 				Mahasiswa Teknik Komputer di Universitas Jenderal Soedirman. Saya membangun produk web
-				dan IoT, dan suka ngurusin server: Ubuntu Server, deploy, dan hosting.
+				dan IoT, dan suka ngurusin server dan DevOps.
 			</p>
 			<div class="hero-cta reveal">
 				<a class="btn btn-primary" href="#projects"
@@ -127,8 +127,8 @@
 				<h2>Mahasiswa yang suka membangun sampai jadi.</h2>
 				<p>
 					Saya Apriyudha, mahasiswa Teknik Komputer angkatan 2024 di Universitas Jenderal
-					Soedirman dan tinggal di Cirebon. Fokus saya: web development, IoT, dan server (Ubuntu
-					Server, deploy, hosting).
+					Soedirman dan tinggal di Cirebon. Fokus saya: web development, IoT, dan DevOps
+					(Ubuntu Server, VPS).
 				</p>
 				<p>
 					Saya percaya project yang bagus adalah yang selesai dan dipakai, bukan yang berhenti di
@@ -212,7 +212,7 @@
 <footer class="footer">
 	<div class="wrap footer-inner">
 		<p>© 2026 Apriyudha, Cirebon, Indonesia · <span class="clock">{formatWIB(now)} WIB</span></p>
-		<p class="mono footer-note">Built with SvelteKit · Hosted on GitHub Pages</p>
+		<p class="mono footer-note">Built with SvelteKit · Live on GitHub Pages</p>
 	</div>
 </footer>
 
