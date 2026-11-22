@@ -10,7 +10,25 @@
 
 	const marquee = ['Web Development', 'IoT', 'Ubuntu Server', 'Deploy', 'Hosting', 'VPS', 'Go', 'TypeScript', 'ESP32', 'Supabase', 'Cloudflare'];
 
+	// Jam live WIB untuk footer
+	let now = new Date();
+	function formatWIB(d) {
+		const p = (n) => String(n).padStart(2, '0');
+		const parts = new Intl.DateTimeFormat('en-GB', {
+			timeZone: 'Asia/Jakarta',
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit',
+			hour12: false
+		}).formatToParts(d);
+		const get = (t) => parts.find((x) => x.type === t)?.value ?? '00';
+		return `${p(Number(get('hour')))}:${p(Number(get('minute')))}:${p(Number(get('second')))}`;
+	}
+
 	onMount(() => {
+		const tick = setInterval(() => {
+			now = new Date();
+		}, 1000);
 		const els = document.querySelectorAll('.reveal');
 		const io = new IntersectionObserver(
 			(entries) => {
@@ -24,7 +42,10 @@
 			{ threshold: 0.15 }
 		);
 		els.forEach((el) => io.observe(el));
-		return () => io.disconnect();
+		return () => {
+			clearInterval(tick);
+			io.disconnect();
+		};
 	});
 </script>
 
@@ -35,6 +56,7 @@
 <!-- Announcement bar -->
 <div class="announce">
 	<a href="mailto:apriyudha307@gmail.com">
+		<span class="pulse-dot" aria-hidden="true"></span>
 		Open for freelance &amp; collaboration <span aria-hidden="true">↗</span>
 	</a>
 </div>
@@ -76,6 +98,10 @@
 					>GitHub</a
 				>
 			</div>
+			<a class="scroll-cue reveal" href="#about" aria-label="Scroll ke bawah">
+				<span>Scroll</span>
+				<span class="scroll-arrow" aria-hidden="true">↓</span>
+			</a>
 		</div>
 		<div class="marquee" aria-hidden="true">
 			<div class="marquee-track">
@@ -101,7 +127,7 @@
 				<h2>Mahasiswa yang suka membangun sampai jadi.</h2>
 				<p>
 					Saya Apriyudha, mahasiswa Teknik Komputer angkatan 2024 di Universitas Jenderal
-					Soedirman, berbasis di Cirebon. Fokus saya: web development, IoT, dan server (Ubuntu
+					Soedirman dan tinggal di Cirebon. Fokus saya: web development, IoT, dan server (Ubuntu
 					Server, deploy, hosting).
 				</p>
 				<p>
@@ -111,7 +137,7 @@
 				<ul class="facts">
 					<li><span>Universitas</span><strong>Unsoed - Teknik Komputer</strong></li>
 					<li><span>Angkatan</span><strong>2024</strong></li>
-					<li><span>Berbasis di</span><strong>Cirebon, Jawa Barat</strong></li>
+					<li><span>Tinggal di</span><strong>Cirebon, Jawa Barat</strong></li>
 					<li><span>Fokus</span><strong>Web · IoT · Server</strong></li>
 				</ul>
 			</div>
@@ -185,7 +211,7 @@
 
 <footer class="footer">
 	<div class="wrap footer-inner">
-		<p>© 2026 Apriyudha, Cirebon, Indonesia</p>
+		<p>© 2026 Apriyudha, Cirebon, Indonesia · <span class="clock">{formatWIB(now)} WIB</span></p>
 		<p class="mono footer-note">Built with SvelteKit · Hosted on GitHub Pages</p>
 	</div>
 </footer>
@@ -202,6 +228,30 @@
 	}
 	.announce a:hover {
 		text-decoration: underline;
+	}
+	.announce a {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+	}
+	.pulse-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #22c55e;
+		box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+		animation: pulse 2s ease-out infinite;
+	}
+	@keyframes pulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+		}
+		70% {
+			box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+		}
+		100% {
+			box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+		}
 	}
 
 	/* Nav */
@@ -276,6 +326,34 @@
 		margin-top: 38px;
 		flex-wrap: wrap;
 	}
+	.scroll-cue {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2px;
+		margin-top: 64px;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+	.scroll-cue:hover {
+		color: #000;
+	}
+	.scroll-arrow {
+		font-size: 16px;
+		animation: bob 1.8s ease-in-out infinite;
+	}
+	@keyframes bob {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(5px);
+		}
+	}
 	.blob {
 		position: absolute;
 		border-radius: 50%;
@@ -340,6 +418,9 @@
 		font-style: normal;
 		color: var(--accent);
 	}
+	.marquee:hover .marquee-track {
+		animation-play-state: paused;
+	}
 	@keyframes scroll {
 		to {
 			transform: translateX(-50%);
@@ -347,6 +428,10 @@
 	}
 
 	/* About */
+	#about {
+		background-image: radial-gradient(circle, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+		background-size: 26px 26px;
+	}
 	.about-grid {
 		display: grid;
 		grid-template-columns: 380px 1fr;
@@ -594,6 +679,11 @@
 		margin-left: auto;
 		color: var(--muted);
 		font-size: 15px;
+		transition: transform 0.2s ease;
+	}
+	.social-card:hover .social-arrow {
+		transform: translate(2px, -2px);
+		color: #000;
 	}
 
 	/* Footer */
@@ -612,6 +702,11 @@
 	.footer-note {
 		font-size: 12px;
 		letter-spacing: 0.06em;
+	}
+	.clock {
+		font-family: 'JetBrains Mono', ui-monospace, monospace;
+		font-size: 13px;
+		color: var(--text);
 	}
 
 	/* Reveal */
